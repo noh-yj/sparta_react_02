@@ -3,7 +3,6 @@ import { Grid, Text, Button } from '../elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as userActions } from '../redux/modules/user';
 import { history } from '../redux/configureStore';
-// import Permit from '../shared/Permit';
 import { apiKey } from '../shared/firebase';
 
 function Header(props) {
