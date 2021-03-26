@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, Input, Grid, Button } from '../elements';
 import { actionCreators as userActions } from '../redux/modules/user';
 import { useDispatch } from 'react-redux';
+import { emailCheck } from '../shared/common';
 
 function Login(props) {
   const dispatch = useDispatch();
@@ -12,6 +13,10 @@ function Login(props) {
   const login = () => {
     if (id === '' || pwd === '') {
       window.alert('아이디 혹은 비밀번호가 공란입니다! 입력해주세요!');
+      return;
+    }
+    if (!emailCheck(id)) {
+      window.alert('이메일 형식이 맞지 않습니다!');
       return;
     }
     dispatch(userActions.loginFB(id, pwd));

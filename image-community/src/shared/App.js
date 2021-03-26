@@ -8,9 +8,10 @@ import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 import Header from '../components/Header';
 import Permit from './Permit';
+import PostWrite from '../pages/PostWrite';
+import PostDetail from '../pages/PostDetail';
 import { useDispatch } from 'react-redux';
 import { actionCreators as userActions } from '../redux/modules/user';
-
 import { apiKey } from './firebase';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
     if (is_session) {
       dispatch(userActions.loginCheckFB());
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
@@ -32,11 +34,18 @@ function App() {
           <Route path='/' exact component={PostList} />
           <Route path='/login' exact component={Login} />
           <Route path='/signup' exact component={SignUp} />
+          <Route path='/write' exact component={PostWrite} />
+          <Route path='/post/:id' exact component={PostDetail} />
         </ConnectedRouter>
       </Grid>
       <Permit>
-        <Button is_float text='+'></Button>
-        
+        <Button
+          is_float
+          text='+'
+          _onClick={() => {
+            history.push('/write');
+          }}
+        ></Button>
       </Permit>
     </>
   );
