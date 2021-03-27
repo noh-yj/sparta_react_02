@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, Image, Text } from '../elements';
+import { Button, Grid, Image, Text } from '../elements';
+import { history } from '../redux/configureStore';
 
 function Post(props) {
   return (
@@ -8,7 +9,20 @@ function Post(props) {
         <Grid is_flex>
           <Image shape='circle' src={props.src} />
           <Text bold>{props.user_info.user_name}</Text>
+
           <Text>{props.insert_dt}</Text>
+          {props.is_me && (
+            <Button
+              padding='4px'
+              width='auto'
+              margin='4px'
+              _onClick={() => {
+                history.push(`/write/${props.id}`);
+              }}
+            >
+              수정
+            </Button>
+          )}
         </Grid>
         <Grid padding='16px'>
           <Text>{props.contents}</Text>
@@ -35,6 +49,7 @@ Post.defaultProps = {
   contents: 'hello',
   comment_cnt: 10,
   insert_dt: '2021-03-26 10:00:00',
+  is_me: false,
 };
 
 export default Post;

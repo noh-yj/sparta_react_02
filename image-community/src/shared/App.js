@@ -10,6 +10,7 @@ import Header from '../components/Header';
 import Permit from './Permit';
 import PostWrite from '../pages/PostWrite';
 import PostDetail from '../pages/PostDetail';
+import Notifiation from '../pages/Notifiation';
 import { useDispatch } from 'react-redux';
 import { actionCreators as userActions } from '../redux/modules/user';
 import { apiKey } from './firebase';
@@ -35,7 +36,9 @@ function App() {
           <Route path='/login' exact component={Login} />
           <Route path='/signup' exact component={SignUp} />
           <Route path='/write' exact component={PostWrite} />
+          <Route path='/write/:id' exact component={PostWrite} />
           <Route path='/post/:id' exact component={PostDetail} />
+          <Route path='/noti' exact component={Notifiation} />
         </ConnectedRouter>
       </Grid>
       <Permit>
