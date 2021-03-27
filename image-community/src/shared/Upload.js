@@ -16,13 +16,13 @@ function Upload(props) {
       dispatch(imageActions.setPreview(reader.result));
     };
   };
-  const uploadFB = () => {
-    if (!fileInput.current || fileInput.current.files.length === 0) {
-      window.alert('파일을 선택해 주세요!');
-    }
+  // const uploadFB = () => {
+  //   if (!fileInput.current || fileInput.current.files.length === 0) {
+  //     window.alert('파일을 선택해 주세요!');
+  //   }
 
-    dispatch(imageActions.uploadImageFB(fileInput.current.files[0]));
-  };
+  //   dispatch(imageActions.uploadImageFB(fileInput.current.files[0]));
+  // };
   return (
     <>
       <input
@@ -31,7 +31,7 @@ function Upload(props) {
         ref={fileInput}
         disabled={uploading}
       />
-      <Button _onClick={uploadFB}>업로드하기</Button>
+      {/* <Button _onClick={uploadFB}>업로드하기</Button> */}
     </>
   );
 }

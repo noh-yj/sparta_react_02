@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Text, Button } from '../elements';
+import NotiBadge from './NotiBadge';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as userActions } from '../redux/modules/user';
 import { history } from '../redux/configureStore';
@@ -23,12 +24,17 @@ function Header(props) {
             </Grid>
             <Grid is_flex>
               <Button text='내정보'></Button>
-              <Button
+              {/* <Button
                 text='알림'
                 _onClick={() => {
                   history.push('/noti');
                 }}
-              ></Button>
+              ></Button> */}
+              <NotiBadge
+                _onClick={() => {
+                  history.push('/noti');
+                }}
+              />
               <Button
                 text='로그아웃'
                 _onClick={() => {

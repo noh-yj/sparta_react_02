@@ -35,6 +35,7 @@ function Post(props) {
             댓글 {props.comment_cnt}개
           </Text>
         </Grid>
+        <hr style={{ border: 'none' }} />
       </Grid>
     </>
   );
